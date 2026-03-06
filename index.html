@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AntroCode | A partner coworks with you</title>
+    <style>
+        /* ================= Core Variables ================= */
+        :root {
+            --brand-green: #00FFAA;
+            --brand-green-hover: #00CC88;
+            --bg-main: #0a0a0a;
+            --bg-secondary: #141414;
+            --text-primary: #FFFFFF;
+            --text-secondary: #A1A1AA;
+            --border-color: #27272A;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Inter', 'Segoe UI', sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--bg-main);
+            color: var(--text-primary);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        a { text-decoration: none; color: inherit; }
+        
+        /* ================= Navigation ================= */
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 5%;
+            background-color: rgba(10, 10, 10, 0.8);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--border-color);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .logo { 
+            font-size: 24px; 
+            font-weight: 800; 
+            letter-spacing: 1px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .logo span { color: var(--brand-green); }
+        
+        .nav-links { display: flex; gap: 40px; }
+        .nav-links a { 
+            font-weight: 500; 
+            font-size: 14px;
+            color: var(--text-secondary);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: color 0.3s; 
+        }
+        .nav-links a:hover { color: var(--brand-green); }
+
+        .btn {
+            padding: 12px 28px;
+            border-radius: 6px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: none;
+            font-size: 15px;
+        }
+        .btn-primary { 
+            background-color: var(--brand-green); 
+            color: #000000; 
+        }
+        .btn-primary:hover { 
+            background-color: var(--brand-green-hover); 
+            transform: translateY(-2px); 
+            box-shadow: 0 4px 15px rgba(0, 255, 170, 0.3);
+        }
+        .btn-outline { 
+            border: 1px solid var(--border-color); 
+            color: var(--text-primary); 
+            background: transparent; 
+        }
+        .btn-outline:hover { 
+            border-color: var(--brand-green); 
+            color: var(--brand-green); 
+        }
+
+        /* ================= Hero Section ================= */
+        .hero {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 180px 5% 120px;
+            min-height: 100vh;
+            background: radial-gradient(circle at top right, rgba(0, 255, 170, 0.05), transparent 40%);
+        }
+
+        .hero-content { flex: 1; max-width: 650px; }
+        .team-badge {
+            display: inline-block;
+            padding: 6px 12px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid var(--border-color);
+            border-radius: 20px;
+            font-size: 12px;
+            color: var(--text-secondary);
+            margin-bottom: 24px;
+            letter-spacing: 1px;
+        }
+        .team-badge span { color: var(--brand-green); font-weight: bold; }
+
+        .hero-content h1 { 
+            font-size: 4.5rem; 
+            line-height: 1.1; 
+            margin-bottom: 24px; 
+            font-weight: 800;
+            letter-spacing: -1px;
+        }
+        .hero-content h1 span {
+            color: var(--brand-green);
+        }
+        .hero-content p { 
+            font-size: 1.25rem; 
+            color: var(--text-secondary); 
+            margin-bottom: 40px; 
+            max-width: 90%;
+        }
+        
+        .hero-buttons { display: flex; gap: 16px; }
+
+        .hero-image { flex: 1; display: flex; justify-content: flex-end; position: relative; }
+        .hero-image img { 
+            max-width: 100%; 
+            border-radius: 12px; 
+            border: 1px solid var(--border-color);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5), 0 0 40px rgba(0, 255, 170, 0.1);
+        }
+
+        /* ================= Features Section ================= */
+        .features { 
+            padding: 120px 5%; 
+            background-color: var(--bg-secondary); 
+            border-top: 1px solid var(--border-color);
+        }
+        
+        .section-header { text-align: center; margin-bottom: 80px; }
+        .section-title { font-size: 3rem; margin-bottom: 16px; font-weight: 700; }
+        .section-subtitle { color: var(--text-secondary); font-size: 1.1rem; }
+
+        .feature-grid { 
+            display: grid; 
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
+            gap: 30px; 
+        }
+        .feature-card {
+            background-color: var(--bg-main);
+            padding: 40px 32px;
+            border-radius: 12px;
+            border: 1px solid var(--border-color);
+            transition: all 0.3s ease;
+        }
+        .feature-card:hover { 
+            transform: translateY(-5px); 
+            border-color: rgba(0, 255, 170, 0.3);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+        }
+        .feature-icon { 
+            font-size: 32px; 
+            margin-bottom: 24px; 
+            color: var(--brand-green);
+        }
+        .feature-card h3 { font-size: 1.5rem; margin-bottom: 12px; font-weight: 600; }
+        .feature-card p { color: var(--text-secondary); line-height: 1.7; font-size: 0.95rem; }
+
+        /* ================= Footer ================= */
+        .footer { 
+            background-color: var(--bg-main); 
+            text-align: center; 
+            padding: 80px 20px 40px; 
+            border-top: 1px solid var(--border-color);
+        }
+        .footer h2 { font-size: 2.5rem; margin-bottom: 30px; }
+        .footer-logo { font-size: 20px; font-weight: bold; margin-bottom: 10px; color: var(--text-secondary); }
+        .footer p { color: #52525B; font-size: 0.9rem; margin-top: 60px; }
+
+        /* ================= Responsive ================= */
+        @media (max-width: 968px) {
+            .hero { flex-direction: column; text-align: center; padding-top: 140px; }
+            .hero-content { margin-bottom: 60px; max-width: 100%; }
+            .hero-content p { margin: 0 auto 40px; }
+            .hero-buttons { justify-content: center; }
+            .hero-image { justify-content: center; }
+            .nav-links { display: none; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="logo">Antro<span>Code</span></div>
+        <div class="nav-links">
+            <a href="#home">Home</a>
+            <a href="#features">Features</a>
+            <a href="#about">About</a>
+        </div>
+        <button class="btn btn-primary" onclick="alert('Redirecting to the app...')">Launch App</button>
+    </nav>
+
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <div class="team-badge">Developed by <span>AntroMind</span></div>
+            <h1>A partner <br><span>coworks</span> with you.</h1>
+            <p>AntroCode is more than just a tool. It's an intelligent workspace designed to streamline your coding process, manage your projects, and bring your ideas to life.</p>
+            <div class="hero-buttons">
+                <button class="btn btn-primary">Get Started for Free</button>
+                <button class="btn btn-outline" onclick="document.getElementById('features').scrollIntoView();">Explore Features</button>
+            </div>
+        </div>
+        <div class="hero-image">
+            <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="AntroCode Interface">
+        </div>
+    </section>
+
+    <section id="features" class="features">
+        <div class="section-header">
+            <h2 class="section-title">Built for Modern Developers</h2>
+            <p class="section-subtitle">Everything you need to write better code, faster.</p>
+        </div>
+        
+        <div class="feature-grid">
+            <div class="feature-card">
+                <div class="feature-icon">⚡</div>
+                <h3>Deep Integration</h3>
+                <p>Seamlessly connect with top-tier AI models. AntroCode understands your context and delivers precise, actionable code snippets in real-time.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">📂</div>
+                <h3>Dual-Track Management</h3>
+                <p>Organize your workflow effortlessly. Keep your Agents and Projects perfectly structured with our intuitive sidebar and bookmarking system.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">🖤</div>
+                <h3>Distraction-Free UI</h3>
+                <p>A beautifully crafted dark mode interface with syntax highlighting and one-click copy features, designed to keep you in the zone.</p>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer" id="about">
+        <h2>Ready to redefine your workflow?</h2>
+        <button class="btn btn-primary" style="margin-bottom: 40px;">Join AntroCode Today</button>
+        <div class="footer-logo">AntroMind</div>
+        <p>&copy; 2026 AntroMind Research. All rights reserved.</p>
+    </footer>
+
+</body>
+</html>
