@@ -1,6 +1,6 @@
-# 🚀 AntroCode 
+# 🚀 AntroCode_00/01 
 
-AntroCode 是一個輕量級、純前端渲染的 AI 程式碼助手介面。透過 Python 腳本一鍵生成並啟動，完美串接 **DeepSeek API**，為開發者提供一個沉浸式的深色系（Dark Mode）駭客風工作空間。
+AntroCode_00/01 是一個輕量級、純前端渲染的 AI 程式碼助手介面。透過 Python 腳本一鍵生成並啟動，完美串接 **DeepSeek API**，為開發者提供一個沉浸式的深色系（Dark Mode）駭客風工作空間。
 
 不需要複雜的環境配置、不需要架設後端資料庫，只要填入你的 API Key，立刻擁有一個具備「本地記憶」與「多工處理」能力的專屬 AI 助手。
 
@@ -32,7 +32,7 @@ AntroCode 是一個輕量級、純前端渲染的 AI 程式碼助手介面。透
 - 準備好一組有效的 [DeepSeek API Key](https://platform.deepseek.com/)。
 
 ### 2. 安裝與設定 (Installation & Setup)
-下載本專案的 Python 腳本 `antrocode.py`，並使用文字編輯器打開它。
+下載本專案的 Python 腳本 `AntroCode_00/01.py`，並使用文字編輯器打開它。
 
 找到程式碼中 `ENVIRONMENT_CONFIG` 的設定區塊，將你的 API Key 貼上去：
 
