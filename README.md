@@ -1,6 +1,6 @@
-# 🚀 AntroCode_00/01
+# 🚀 AntroCode
 
-AntroCode_00/01 is a lightweight, purely front-end rendered AI coding assistant interface. Generated and launched via a single Python script, it seamlessly connects to the **DeepSeek API**, providing developers with an immersive, dark-mode hacker-style workspace.
+AntroCode is a lightweight, purely front-end rendered AI coding assistant interface. Generated and launched via a single Python script, it seamlessly connects to the **DeepSeek API**, providing developers with an immersive, dark-mode hacker-style workspace.
 
 No complex environment setup or backend database required—just plug in your API Key and instantly get a dedicated AI assistant with "local memory" and "multitasking" capabilities.
 
@@ -25,20 +25,3 @@ No complex environment setup or backend database required—just plug in your AP
 
 ---
 
-## 🛠️ Getting Started
-
-### 1. Prerequisites
-- [Python 3.x](https://www.python.org/) installed on your machine.
-- A valid [DeepSeek API Key](https://platform.deepseek.com/).
-
-### 2. Installation & Setup
-Download the project's Python script `antrocode.py` and open it in your favorite text editor.
-
-Locate the `ENVIRONMENT_CONFIG` section in the script and insert your API Key:
-
-```javascript
-const ENVIRONMENT_CONFIG = {
-    API_URL: '[https://api.deepseek.com/chat/completions](https://api.deepseek.com/chat/completions)', 
-    API_KEY: 'sk-YOUR_REAL_DEEPSEEK_API_KEY_HERE', // <--- Replace this with your actual key
-    CURRENT_MODE: 'deepseek-reasoner' 
-};
