@@ -2,7 +2,7 @@ import os
 import webbrowser
 
 # ==========================================
-# 網頁原始碼變數 (加入自訂上下文數量與本地 Token 估算) / Web page source code variables (added custom context limit and local Token estimation)
+# 網頁原始碼變數 (加入自訂上下文數量、本地 Token 估算與完善儲存機制) / Web page source code variables (added custom context limit, local Token estimation, and robust storage mechanism)
 # ==========================================
 HTML_TEMPLATE = r"""<!DOCTYPE html>
 <html lang="zh-TW">
@@ -88,7 +88,6 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
         .user-message { align-self: flex-end; background-color: var(--tech-green); color: #000; border-bottom-right-radius: 2px; white-space: pre-wrap; max-width: 70%; }
         .ai-message { align-self: flex-start; background-color: var(--bg-color-element); color: var(--text-color); border-bottom-left-radius: 2px; width: 100%; max-width: 85%; }
         
-        /* 修改：讓錯誤訊息顯示得更好看，適應 Markdown 格式 / Modification: Better display for error messages to adapt to Markdown format */
         .error-message { border-left: 4px solid var(--danger-color); background-color: rgba(255, 68, 68, 0.1); color: #ffcccc; }
         .error-message p { margin-bottom: 8px; }
         .error-message p:last-child { margin-bottom: 0; }
@@ -113,9 +112,6 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
         .copy-btn:hover { background: #444; color: #fff; }
         
         .reasoning-block { border-left: 3px solid #555; padding-left: 12px; color: #888; font-style: italic; margin-bottom: 15px; background: rgba(0,0,0,0.15); padding: 10px 12px; border-radius: 0 8px 8px 0; }
-
-        .load-history-btn { align-self: center; background-color: var(--bg-color-sidebar); border: 1px solid var(--border-color); color: var(--text-muted); padding: 6px 15px; border-radius: 20px; cursor: pointer; font-size: 13px; transition: 0.2s; margin-bottom: 10px; }
-        .load-history-btn:hover { background-color: var(--bg-color-element); color: var(--text-color); }
 
         /* --- 輸入區 / Input Area --- */
         .input-area { padding: 20px; display: flex; justify-content: center; }
@@ -144,13 +140,21 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
 
         /* --- 設定彈窗 (Modal) / Settings Modal --- */
         .modal-overlay { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.7); z-index: 2000; justify-content: center; align-items: center; }
-        .modal-content { background: var(--bg-color-sidebar); padding: 25px; border-radius: 12px; width: 380px; border: 1px solid var(--border-color); box-shadow: 0 10px 30px rgba(0,0,0,0.5); }
+        .modal-content { background: var(--bg-color-sidebar); padding: 25px; border-radius: 12px; width: 420px; border: 1px solid var(--border-color); box-shadow: 0 10px 30px rgba(0,0,0,0.5); }
         .modal-content h3 { margin-bottom: 15px; color: var(--text-color); }
-        .setting-group { margin-bottom: 20px; }
+        .setting-group { margin-bottom: 15px; }
         .setting-group label { display: block; font-size: 13px; color: var(--text-muted); margin-bottom: 8px; }
         .modal-input { width: 100%; padding: 10px; background: var(--bg-color-element); border: 1px solid var(--border-color); color: var(--text-color); border-radius: 6px; outline: none; }
         .modal-input:focus { border-color: var(--tech-green); }
-        .modal-actions { display: flex; justify-content: flex-end; gap: 10px; margin-top: 10px; }
+        
+        /* 新增：資料管理區域樣式 / Added: Data management area styles */
+        .data-management { margin-top: 20px; padding-top: 15px; border-top: 1px solid var(--border-color); display: flex; gap: 8px; flex-wrap: wrap; justify-content: space-between; }
+        .data-btn { flex: 1; padding: 8px; background: var(--bg-color-element); border: 1px solid var(--border-color); color: var(--text-color); border-radius: 6px; cursor: pointer; font-size: 12px; transition: 0.2s; text-align: center; }
+        .data-btn:hover { background: #444; }
+        .data-btn.danger { color: var(--danger-color); border-color: rgba(255, 68, 68, 0.3); }
+        .data-btn.danger:hover { background: rgba(255, 68, 68, 0.1); }
+
+        .modal-actions { display: flex; justify-content: flex-end; gap: 10px; margin-top: 20px; }
         .modal-actions button { padding: 8px 15px; border: none; border-radius: 6px; cursor: pointer; }
         .btn-cancel { background: transparent; color: var(--text-muted); }
         .btn-cancel:hover { color: var(--text-color); }
@@ -188,8 +192,7 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
                 </div>
             </header>
             
-            <div class="chat-display" id="chatDisplay">
-            </div>
+            <div class="chat-display" id="chatDisplay"></div>
             
             <div class="input-area">
                 <div class="input-box">
@@ -221,7 +224,7 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
 
     <div class="modal-overlay" id="settingsModal">
         <div class="modal-content">
-            <h3>⚙️ Settings</h3>
+            <h3>⚙️ Settings & Data</h3>
             <div class="setting-group">
                 <label>DeepSeek API Key (Stored Locally):</label>
                 <input type="password" id="apiKeyInput" class="modal-input" placeholder="sk-...">
@@ -230,6 +233,14 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
                 <label>Context History Limit (Messages to send):</label>
                 <input type="number" id="contextLimitInput" class="modal-input" placeholder="15" min="1" max="100">
             </div>
+            
+            <div class="data-management">
+                <button class="data-btn" id="exportDataBtn">📥 導出備份 / Export</button>
+                <button class="data-btn" onclick="document.getElementById('importFileInput').click()">📤 導入還原 / Import</button>
+                <input type="file" id="importFileInput" style="display: none;" accept=".json">
+                <button class="data-btn danger" id="clearDataBtn">🗑️ 清除全部 / Clear All</button>
+            </div>
+
             <div class="modal-actions">
                 <button class="btn-cancel" id="closeModalBtn">Cancel</button>
                 <button class="btn-save" id="saveKeyBtn">Save</button>
@@ -243,7 +254,6 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
             CURRENT_MODE: 'deepseek-reasoner'
         };
 
-        // 讀取/儲存 設定邏輯 / Read/Save settings logic
         function getSettings() {
             return {
                 apiKey: localStorage.getItem('antrocode_api_key') || '',
@@ -256,9 +266,9 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
         }
 
         // ==========================================
-        // 💾 狀態管理與 Token 本地估算工具 / State management and local Token estimation tool
+        // 💾 狀態管理防呆與資料保護修復 / State management fallback and data protection fixes
         // ==========================================
-        const STORAGE_KEY = 'antrocode_local_state';
+        const STORAGE_KEY = 'antrocode_local_state_v3'; // 更新版本號確保乾淨狀態 / Update version number to ensure clean state
         
         const defaultState = {
             items: [
@@ -269,34 +279,51 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
                 'agent-1': [{ role: 'ai', content: 'System Ready. Switched to workspace **Agent 1**.' }],
                 'proj-1': [{ role: 'ai', content: 'System Ready. Switched to workspace **Project 1**.' }]
             },
-            tokens: {
-                'agent-1': 0,
-                'proj-1': 0
-            },
+            tokens: { 'agent-1': 0, 'proj-1': 0 },
             activeId: 'agent-1'
         };
 
-        let appState = JSON.parse(localStorage.getItem(STORAGE_KEY)) || defaultState;
-        // 防呆設計：確保狀態物件存在 / Fallback design: Ensure state objects exist
-        if (!appState.tokens) appState.tokens = {};
-        if (!appState.chats) appState.chats = {}; 
+        let appState;
 
+        // 修復 1: 防止 JSON 解析損壞導致白畫面 / Fix 1: Prevent white screen caused by corrupted JSON parsing
+        try {
+            const savedData = localStorage.getItem(STORAGE_KEY);
+            appState = savedData ? JSON.parse(savedData) : defaultState;
+            
+            // 防呆驗證資料結構 / Fallback validation of data structure
+            if (!appState || typeof appState !== 'object') throw new Error("Invalid state structure");
+            if (!appState.tokens) appState.tokens = {};
+            if (!appState.chats) appState.chats = {};
+            if (!Array.isArray(appState.items)) appState.items = [];
+        } catch (error) {
+            console.error("讀取歷史紀錄失敗，已重置狀態 / Failed to read history, state reset:", error);
+            appState = JSON.parse(JSON.stringify(defaultState)); // 深度拷貝預設狀態 / Deep copy default state
+        }
+
+        // 修復 2: 攔截儲存空間不足 (QuotaExceededError) 的崩潰 / Fix 2: Intercept storage space full crash
         function saveState() {
-            localStorage.setItem(STORAGE_KEY, JSON.stringify(appState));
+            try {
+                localStorage.setItem(STORAGE_KEY, JSON.stringify(appState));
+            } catch (error) {
+                if (error.name === 'QuotaExceededError' || error.name === 'NS_ERROR_DOM_QUOTA_REACHED') {
+                    alert('⚠️ 系統提示：您的本地儲存空間已滿！請刪除一些舊的專案或對話，或導出備份後清除空間。\nSystem Notice: Local storage is full! Please delete some items or export backup and clear space.');
+                } else {
+                    console.error('儲存狀態時發生未知錯誤 / Unknown error while saving state:', error);
+                }
+            }
         }
 
         function generateId(prefix) {
             return `${prefix}-${Date.now().toString(36)}-${Math.random().toString(36).substr(2, 5)}`;
         }
 
-        // 🧠 本地 Token 估算演算法 / Local Token estimation algorithm
         function estimateTokensLocally(messagesArray, generatedText) {
             let totalText = messagesArray.map(m => m.content).join(" ") + generatedText;
             return Math.ceil(totalText.length * 1.5);
         }
 
         // ==========================================
-        // 🎨 UI 渲染邏輯 / UI Rendering Logic
+        // 🎨 UI 渲染與 API 邏輯維持不變... / UI rendering and API logic remain unchanged...
         // ==========================================
         const agentList = document.getElementById('agentList');
         const projectList = document.getElementById('projectList');
@@ -306,6 +333,7 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
         const tokenValueDisplay = document.getElementById('tokenValue');
         const tokenCounterDiv = document.getElementById('tokenCounter');
         const stopBtn = document.getElementById('stopBtn');
+        const chatInput = document.getElementById('chatInput');
         
         let targetIdToModify = null;
         let currentAbortController = null;
@@ -316,7 +344,7 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
 
             appState.items.forEach(item => {
                 const li = document.createElement('li');
-                li.innerText = item.name;
+                li.innerText = item.name; // 這裡使用 innerText 防範 XSS 攻擊 / Uses innerText to prevent XSS attacks
                 li.dataset.id = item.id;
                 
                 if (item.id === appState.activeId) li.classList.add('active-tab');
@@ -359,10 +387,7 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
                         navigator.clipboard.writeText(code.innerText).then(() => {
                             btn.innerText = 'Copied!';
                             btn.style.color = 'var(--tech-green)';
-                            setTimeout(() => {
-                                btn.innerText = 'Copy';
-                                btn.style.color = '#ccc';
-                            }, 2000);
+                            setTimeout(() => { btn.innerText = 'Copy'; btn.style.color = '#ccc'; }, 2000);
                         });
                     }
                 };
@@ -386,14 +411,12 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
             tokenValueDisplay.innerText = (appState.tokens[appState.activeId] || 0).toLocaleString();
 
             const history = appState.chats[appState.activeId] || [];
-            let messagesToShow = history; 
 
-            messagesToShow.forEach(msg => {
+            history.forEach(msg => {
                 const msgDiv = document.createElement('div');
                 msgDiv.className = `chat-message ${msg.role === 'user' ? 'user' : 'ai'}-message`;
                 
                 if (msg.role === 'error') {
-                    // 修改：使用 Markdown 解析錯誤訊息，支援更好的排版 / Modification: Use Markdown to parse error messages for better formatting
                     msgDiv.className = 'chat-message ai-message error-message';
                     msgDiv.innerHTML = marked.parse(msg.content);
                 } else if (msg.role === 'user') {
@@ -413,11 +436,6 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
             chatDisplay.scrollTop = chatDisplay.scrollHeight;
         }
 
-        // ==========================================
-        // 💬 API 串接與 Streaming 邏輯 / API Integration and Streaming Logic
-        // ==========================================
-        const chatInput = document.getElementById('chatInput');
-
         async function callAPI(userMessage) {
             const userSettings = getSettings();
             if (!userSettings.apiKey) {
@@ -427,7 +445,6 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
             if (!appState.activeId) return;
 
             const requestTabId = appState.activeId;
-            // 確保目標陣列存在 / Ensure target array exists
             if (!appState.chats[requestTabId]) appState.chats[requestTabId] = [];
             
             appState.chats[requestTabId].push({ role: 'user', content: userMessage });
@@ -469,7 +486,6 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
                     signal: currentAbortController.signal 
                 });
 
-                // 修改：如果伺服器回傳錯誤狀態碼，使用自然語言拋出詳細錯誤 / Modification: If server returns error status, throw a detailed natural language error
                 if (!response.ok) {
                     throw new Error(`伺服器拒絕了請求 (狀態碼：${response.status}) / Server rejected the request (Status Code: ${response.status}) - ${response.statusText}`);
                 }
@@ -500,7 +516,6 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
                                         appState.tokens[requestTabId] = (appState.tokens[requestTabId] || 0) + data.usage.total_tokens;
                                         if (appState.activeId === requestTabId) {
                                             tokenValueDisplay.innerText = appState.tokens[requestTabId].toLocaleString();
-                                            tokenCounterDiv.title = "Total tokens used in this workspace";
                                         }
                                         continue;
                                     }
@@ -516,9 +531,7 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
                                         msgDiv.innerHTML = tempHTML;
                                         chatDisplay.scrollTop = chatDisplay.scrollHeight;
                                     }
-                                } catch (e) {
-                                    console.warn("JSON Parse warning (Safe to ignore if stream continues):", e);
-                                }
+                                } catch (e) { console.warn("Parse warn:", e); }
                             }
                         }
                     }
@@ -537,8 +550,7 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
                     currentAiMessage.content += "\n\n*(生成已由使用者中斷 / Generation aborted by user)*";
                     appState.chats[requestTabId].push(currentAiMessage);
                     
-                    let generatedStr = currentAiMessage.reasoning + currentAiMessage.content;
-                    let estimatedCost = estimateTokensLocally(apiMessages, generatedStr);
+                    let estimatedCost = estimateTokensLocally(apiMessages, currentAiMessage.reasoning + currentAiMessage.content);
                     appState.tokens[requestTabId] = (appState.tokens[requestTabId] || 0) + estimatedCost;
                     
                     if (appState.activeId === requestTabId && msgDiv) {
@@ -548,15 +560,11 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
                         msgDiv.querySelectorAll('pre code').forEach(block => hljs.highlightElement(block));
                         attachCopyButtons(msgDiv);
                         chatDisplay.scrollTop = chatDisplay.scrollHeight;
-
                         tokenValueDisplay.innerText = appState.tokens[requestTabId].toLocaleString() + " (Est.)";
-                        tokenCounterDiv.title = "Contains estimated tokens due to interruption";
                     }
                     saveState();
                 } else {
-                    // 修改：改用中英雙語的自然語言錯誤提示，語氣更親切並提供建議 / Modification: Use a bilingual natural language error prompt with a friendly tone and suggestions
-                    const friendlyErrorMsg = `**哎呀！發生了一些錯誤。 / Oops! Something went wrong.**\n\n我們無法順利完成您的請求，這可能是因為網路連線不穩、API 金鑰失效，或是伺服器過於繁忙。請稍後再試一次！\nWe couldn't complete your request successfully. This might be due to an unstable network connection, an invalid API key, or a busy server. Please try again later!\n\n*系統提示 / System Details: \`${error.message}\`*`;
-                    
+                    const friendlyErrorMsg = `**發生了一些錯誤。 / Something went wrong.**\n我們無法完成您的請求，這可能是因為網路不穩、API 金鑰失效或伺服器繁忙。\n\n*系統提示 / System Details: \`${error.message}\`*`;
                     appState.chats[requestTabId].push({ role: 'error', content: friendlyErrorMsg });
                     saveState();
                     if (appState.activeId === requestTabId) renderChat();
@@ -568,7 +576,7 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
         }
 
         // ==========================================
-        // 互動綁定區與新增項目邏輯 / Interaction binding area and new item logic
+        // 互動綁定區 / Interaction bindings
         // ==========================================
         window.createNewItem = function(type) {
             const newId = generateId(type);
@@ -589,8 +597,9 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
             if (!li) return;
 
             const item = appState.items.find(i => i.id === targetIdToModify);
-            li.innerHTML = `<input type="text" class="edit-input" value="${item.name}">`;
+            li.innerHTML = `<input type="text" class="edit-input" value="">`;
             const input = li.querySelector('input');
+            input.value = item.name; // 防範 XSS
             input.select();
 
             const saveNewName = () => {
@@ -632,10 +641,7 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
             }
         });
 
-        stopBtn.addEventListener('click', () => {
-            if (currentAbortController) currentAbortController.abort();
-        });
-
+        stopBtn.addEventListener('click', () => { if (currentAbortController) currentAbortController.abort(); });
         document.getElementById('closeSidebar').addEventListener('click', () => { document.getElementById('sidebar').style.display = 'none'; document.getElementById('openSidebar').style.display = 'block'; });
         document.getElementById('openSidebar').addEventListener('click', () => { document.getElementById('sidebar').style.display = 'flex'; document.getElementById('openSidebar').style.display = 'none'; });
         
@@ -653,7 +659,7 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
         document.addEventListener('click', () => { modeDropdown.classList.remove('show'); });
 
         // ==========================================
-        // 設定 Modal 邏輯 (API Key & Context Limit) / Settings Modal logic (API Key & Context Limit)
+        // 設定與資料管理 Modal 邏輯 / Settings and Data Management Modal logic
         // ==========================================
         const modal = document.getElementById('settingsModal');
         const openSettingsBtn = document.getElementById('openSettingsBtn');
@@ -674,13 +680,61 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
         saveKeyBtn.addEventListener('click', () => {
             const key = apiKeyInput.value.trim();
             const limit = parseInt(contextLimitInput.value) || 15;
-            
             if(key) {
                 saveSettings(key, limit);
                 modal.style.display = 'none';
             } else {
-                // 修改：設定存檔失敗的提示語 / Modification: Prompt when saving settings fails
                 alert('系統提示：請輸入有效的 API 金鑰才能開始對話喔！\nSystem Notice: Please enter a valid API Key to start the conversation!');
+            }
+        });
+
+        // 修復 3: 實作導出、導入與清空資料的功能 / Fix 3: Implement Export, Import, and Clear data features
+        document.getElementById('exportDataBtn').addEventListener('click', () => {
+            const dataStr = JSON.stringify(appState, null, 2);
+            const blob = new Blob([dataStr], { type: "application/json" });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = `antrocode_backup_${new Date().toISOString().slice(0,10)}.json`;
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            URL.revokeObjectURL(url);
+        });
+
+        document.getElementById('importFileInput').addEventListener('change', (e) => {
+            const file = e.target.files[0];
+            if (!file) return;
+            const reader = new FileReader();
+            reader.onload = function(event) {
+                try {
+                    const importedData = JSON.parse(event.target.result);
+                    if (importedData.items && importedData.chats) {
+                        appState = importedData;
+                        saveState();
+                        renderSidebar();
+                        renderChat();
+                        alert('✅ 資料導入成功！/ Data imported successfully!');
+                        modal.style.display = 'none';
+                    } else {
+                        throw new Error('格式不正確 / Invalid format');
+                    }
+                } catch (err) {
+                    alert('❌ 導入失敗，檔案格式不正確！/ Import failed, invalid file format!');
+                }
+            };
+            reader.readAsText(file);
+            e.target.value = ''; // 允許重複導入同個檔案 / Allow re-importing the same file
+        });
+
+        document.getElementById('clearDataBtn').addEventListener('click', () => {
+            if(confirm('⚠️ 警告！這將會永久刪除您所有的對話紀錄與專案。確定要清除嗎？\nWARNING! This will permanently delete all your chat history and projects. Are you sure?')) {
+                localStorage.removeItem(STORAGE_KEY);
+                appState = JSON.parse(JSON.stringify(defaultState));
+                saveState();
+                renderSidebar();
+                renderChat();
+                modal.style.display = 'none';
             }
         });
 
@@ -692,17 +746,14 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
 </body>
 </html>"""
 
-# ==========================================
-# 檔案產出與執行邏輯 / File output and execution logic
-# ==========================================
 def main():
     output_filename = "antrocode_ui_pro_max.html"
     with open(output_filename, "w", encoding="utf-8") as file:
         file.write(HTML_TEMPLATE)
-    print(f"✅ 成功！已經將具備自訂上下文與 Token 本地估算功能的 HTML 程式碼寫入到 {output_filename} 中。 / Success! The HTML code with custom context and local Token estimation has been written to {output_filename}.")
+    print(f"✅ 成功！已經將具備【完善防呆儲存機制】與【資料管理中心】的 HTML 寫入到 {output_filename} 中。")
     file_path = 'file://' + os.path.realpath(output_filename)
     webbrowser.open(file_path)
-    print("🌐 正在為您開啟瀏覽器... / Opening your browser now...")
+    print("🌐 正在為您開啟瀏覽器...")
 
 if __name__ == "__main__":
     main()
