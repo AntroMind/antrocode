@@ -2,7 +2,7 @@
 
 ![Version](https://img.shields.io/badge/version-1-00FFAA?style=for-the-badge&logoColor=black)
 ![License](https://img.shields.io/badge/license-MIT-darkred?style=for-the-badge)
-
+![Setup](https://img.shields.io/badge/setup-10_seconds-blue?style=for-the-badge)
 
 **AntroCode** is an ultra-lightweight, out-of-the-box, pure frontend LLM client. No bloated `node_modules`, no backend server deployment required. Just run a single Python script to instantly get a cyberpunk-styled AI workspace designed specifically for developers.
 
