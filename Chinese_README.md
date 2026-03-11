@@ -1,8 +1,8 @@
 # 🟢 AntroCode - The Ultimate Single-File AI Client
 
-![Version](https://img.shields.io/badge/version-0.2.0-00FFAA?style=for-the-badge&logoColor=black)
+![Version](https://img.shields.io/badge/version-1-00FFAA?style=for-the-badge&logoColor=black)
 ![License](https://img.shields.io/badge/license-MIT-darkred?style=for-the-badge)
-![Setup](https://img.shields.io/badge/setup-0_seconds-blue?style=for-the-badge)
+![Setup](https://img.shields.io/badge/setup-10_seconds-blue?style=for-the-badge)
 
 **AntroCode** 是一個極致輕量、開箱即用的純前端 LLM 客戶端。沒有繁瑣的 `node_modules`，不需要部署後端伺服器，只需執行一個 Python 腳本，即可瞬間擁有一個科技感拉滿、專為開發者設計的 AI 工作站。
 
