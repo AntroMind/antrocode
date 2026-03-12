@@ -12,7 +12,8 @@
 
 ## 🔥 為什麼選擇 AntroCode？ (Core Features)
 
-我們把所有複雜的基礎設施全部拋棄，只留下最純粹的生產力與絕對的資料安全：
+### 我是一個12嵗學生。我用4天完成它。（我還在考試呢！）
+我把所有複雜的基礎設施全部拋棄，只留下最純粹的生產力與絕對的資料安全：
 
 ### 1. 🚀 極致輕量，開箱即用 (Zero-Install)
 厭倦了每次都要 `npm install` 幾百 MB 的依賴？AntroCode 透過單一 Python 腳本動態生成單文件 HTML。雙擊運行，瀏覽器秒開，立刻進入工作狀態。這就是極客該有的優雅。
@@ -38,10 +39,10 @@
 
 只需要 3 秒鐘，啟動你的 AntroCode：
 
-1. **下載腳本**：下載本專案的 `AntroCode_02.py`。
+1. **下載腳本**：下載本專案的 `AntroCode_1.py`。
 2. **執行腳本**：
    ```bash
-   python AntroCode_02.py
+   python AntroCode_1.py
 開始使用：腳本會自動在當前目錄生成 antrocode_ui_pro_max.html 並自動為你打開瀏覽器。
 
 設定 API Key：點擊左下角 ⚙️ Settings，輸入你的 API Key，即可開始對話！
