@@ -1,3 +1,7 @@
+<img width="2720" height="1482" alt="螢幕擷取畫面 2026-03-11 155931" src="https://github.com/user-attachments/assets/6bbd2f5c-4e58-4653-b0c4-daa5b90be261" />
+
+<img width="1805" height="1625" alt="My_code" src="https://github.com/user-attachments/assets/fb17fd0c-c91c-489d-a918-900fd70f9d0a" />
+
 # 🚀 Used by 50+ developers in 48 hours!Give it a Star ⭐ to keep this project alive!
 # 🟢 AntroCode - The Ultimate Single-File AI Client
 
@@ -5,9 +9,7 @@
 ![License](https://img.shields.io/badge/license-MIT-darkred?style=for-the-badge)
 ![Setup](https://img.shields.io/badge/setup-10_seconds-blue?style=for-the-badge)
 
-<img width="2720" height="1482" alt="螢幕擷取畫面 2026-03-11 155931" src="https://github.com/user-attachments/assets/6bbd2f5c-4e58-4653-b0c4-daa5b90be261" />
 
-<img width="1805" height="1625" alt="My_code" src="https://github.com/user-attachments/assets/fb17fd0c-c91c-489d-a918-900fd70f9d0a" />
 
 **AntroCode** is an ultra-lightweight, out-of-the-box, pure frontend LLM client. No bloated `node_modules`, no backend server deployment required. Just run a single Python script to instantly get a cyberpunk-styled AI workspace designed specifically for developers.
 
