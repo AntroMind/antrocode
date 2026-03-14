@@ -1,5 +1,6 @@
 ### 📈 Status: 55+ Clones in 72h | Starred by @tkersey (User #217) 🌟 
-
+### 🏆 Ranked #1 on Hacker News Search for "DeepSeek UI"!
+Recognized by the **global tech community** for its **minimalist architecture**.
 # 🟢 AntroCode - Single-File DeepSeek UI, the Developer's 'Swiss Army Knife'!
 ![Version](https://img.shields.io/badge/version-1-00FFAA?style=for-the-badge&logoColor=black)
 ![License](https://img.shields.io/badge/license-MIT-darkred?style=for-the-badge)
