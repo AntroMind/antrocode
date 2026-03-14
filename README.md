@@ -48,7 +48,10 @@ This will help AntroCode **move past this critical low-traction phase**!
 
 ## 🔥 Why Choose AntroCode? (Core Features)
 
-### 🐣 I'm a 12-year-old developer. This is my project, built by pushing my limits during exam week over 4 days.
+### 🐣 Behind the Code: A 12-Year-Old's 80-Hour Rollercoaster
+"In the past 80 hours, I've felt the thrill of solving problems, the sting of being filtered by algorithms, and the pure joy of being recognized by a GitHub Pioneer (#217). My emotions have been like an ECG (Electrocardiogram)—constant ups and downs. But as a developer, I'd rather have a heartbeat than a flatline. 📈
+AntroCode is my 'exam week' challenge to prove that minimalist, single-file tools still have a place in this bloated world. If you value this spirit, please help us reach our 20-star goal tonight. ⭐"
+
 I stripped away all the complex infrastructure, leaving only pure productivity and absolute data security:
 
 ### 1. 🚀 Ultra-Lightweight, Plug-and-Play (Zero-Install)
