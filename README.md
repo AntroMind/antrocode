@@ -69,6 +69,8 @@ Get AntroCode up and running in just **10** seconds:
 2. **Run the Script**:
 ```bash
 python AntroCode_1.py
+```  
+
 Start Using: The script will automatically generate **antrocode_ui_pro_max.html** in your current directory and open it in your browser.
 
 Set Your **API Key**: Click ⚙️ **Settings** in the **bottom-left corner**, enter your **API Key**, and start chatting!
