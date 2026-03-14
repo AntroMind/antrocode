@@ -1,3 +1,7 @@
+<img width="2720" height="1482" alt="螢幕擷取畫面 2026-03-11 155931" src="https://github.com/user-attachments/assets/6bbd2f5c-4e58-4653-b0c4-daa5b90be261" />
+
+<img width="1805" height="1625" alt="My_code" src="https://github.com/user-attachments/assets/fb17fd0c-c91c-489d-a918-900fd70f9d0a" />
+
 # 🟢 AntroCode - The Ultimate Single-File AI Client
 
 ![Version](https://img.shields.io/badge/version-1-00FFAA?style=for-the-badge&logoColor=black)
