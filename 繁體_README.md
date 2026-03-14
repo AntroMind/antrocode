@@ -3,7 +3,7 @@
 ![License](https://img.shields.io/badge/license-MIT-darkred?style=for-the-badge)
 ![Setup](https://img.shields.io/badge/setup-10_seconds-blue?style=for-the-badge)
 
-![AntroCode_Interface.png](https://p0-xtjj-private.juejin.cn/tos-cn-i-73owjymdk6/8d897406843042699889861bffe7090e~tplv-73owjymdk6-jj-mark-v1:0:0:0:0:5o6Y6YeR5oqA5pyv56S-5Yy6IEAgQW50cm9NaW5k:q75.awebp?policy=eyJ2bSI6MywidWlkIjoiMzMzNTI3OTM2NDAxNDgyNiJ9&rk3s=e9ecf3d6&x-orig-authkey=f32326d3454f2ac7e96d3d06cdbb035152127018&x-orig-expires=1773574458&x-orig-sign=O4DJ0Vj1kVxlxopwuATm1M5pIDQ%3D)
+<img width="2720" height="1482" alt="Image" src="https://github.com/user-attachments/assets/789f60e9-4712-409b-b74f-c9acb2865f2b" />
 
 # 📊 項目動態 (Real-time Traction)
 ## 我們在開源後的 72.5 小時 內經歷了不可思議的增長：
@@ -18,12 +18,11 @@
 如果這個「零依賴」的方案幫你省下了配置環境的時間，請**點個 Star**⭐ **支持我們衝擊今晚 20 星**的目標！
 這能夠讓AntroCode**擺脫流量不足的危險期**！
 
-![Traffic (1).png](https://p0-xtjj-private.juejin.cn/tos-cn-i-73owjymdk6/6b519ef8ef864674962dfb1045a5c39c~tplv-73owjymdk6-jj-mark-v1:0:0:0:0:5o6Y6YeR5oqA5pyv56S-5Yy6IEAgQW50cm9NaW5k:q75.awebp?policy=eyJ2bSI6MywidWlkIjoiMzMzNTI3OTM2NDAxNDgyNiJ9&rk3s=e9ecf3d6&x-orig-authkey=f32326d3454f2ac7e96d3d06cdbb035152127018&x-orig-expires=1773574458&x-orig-sign=satWPsvobCbXbIJg%2BoCeuxQ2JpM%3D)
+<img width="1835" height="1430" alt="Image" src="https://github.com/user-attachments/assets/f13efccd-85bd-4f0b-8216-a7135632a63c" />
 
+<img width="2670" height="1502" alt="Image" src="https://github.com/user-attachments/assets/a56bc73a-2ea9-4885-8225-fc837fc3ee68" />
 
-![Internet.png](https://p0-xtjj-private.juejin.cn/tos-cn-i-73owjymdk6/a8cfe9f80e81473c956e0c7a10b391be~tplv-73owjymdk6-jj-mark-v1:0:0:0:0:5o6Y6YeR5oqA5pyv56S-5Yy6IEAgQW50cm9NaW5k:q75.awebp?policy=eyJ2bSI6MywidWlkIjoiMzMzNTI3OTM2NDAxNDgyNiJ9&rk3s=e9ecf3d6&x-orig-authkey=f32326d3454f2ac7e96d3d06cdbb035152127018&x-orig-expires=1773574458&x-orig-sign=dRJi0NlTEcEpeA7GCbu6eFN9ptw%3D)
-
-![My_code.png](https://p0-xtjj-private.juejin.cn/tos-cn-i-73owjymdk6/2a07633d6360426fb27eb72a0124bbbd~tplv-73owjymdk6-jj-mark-v1:0:0:0:0:5o6Y6YeR5oqA5pyv56S-5Yy6IEAgQW50cm9NaW5k:q75.awebp?policy=eyJ2bSI6MywidWlkIjoiMzMzNTI3OTM2NDAxNDgyNiJ9&rk3s=e9ecf3d6&x-orig-authkey=f32326d3454f2ac7e96d3d06cdbb035152127018&x-orig-expires=1773574458&x-orig-sign=Oesg364gWtiJEcGy0FNaJUUFJ6Y%3D)
+<img width="1805" height="1625" alt="Image" src="https://github.com/user-attachments/assets/817ffff2-70ea-49c8-b321-b62789d3ff14" />
 
 「我們受夠了為了**跑一個簡單的 UI** 要**下載幾百 MB** 的依賴。AntroCode 是一個**極致輕量**、**開箱即用**的**純前端 LLM 客戶端**。」
 
