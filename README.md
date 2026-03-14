@@ -1,3 +1,4 @@
+# 🚀 Used by 50+ developers in 48 hours!Give it a Star ⭐ to keep this project alive!
 # 🟢 AntroCode - The Ultimate Single-File AI Client
 
 ![Version](https://img.shields.io/badge/version-1-00FFAA?style=for-the-badge&logoColor=black)
