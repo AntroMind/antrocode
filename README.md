@@ -1,3 +1,5 @@
+# 📈 Status: 55+ Clones in 72h | Starred by GitHub Pioneer #217🌟 Help us reach 20 Stars tonight to keep the mission alive!
+
 # 🟢 AntroCode - Single-File DeepSeek UI, the Developer's 'Swiss Army Knife'!
 ![Version](https://img.shields.io/badge/version-1-00FFAA?style=for-the-badge&logoColor=black)
 ![License](https://img.shields.io/badge/license-MIT-darkred?style=for-the-badge)
