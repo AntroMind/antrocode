@@ -1,4 +1,5 @@
-### 📈 Status: 55+ Clones in 72h |Starred by [@tkersey](https://github.com) (User #217)🌟 Help us reach 20 Stars tonight to keep the mission alive!
+### 📈 Status: 55+ Clones in 72h | Starred by [@tkersey](https://github.com) (User #217) 🌟 Help us reach 20 Stars tonight to keep the mission alive!
+
 
 # 🟢 AntroCode - Single-File DeepSeek UI, the Developer's 'Swiss Army Knife'!
 ![Version](https://img.shields.io/badge/version-1-00FFAA?style=for-the-badge&logoColor=black)
@@ -15,7 +16,8 @@ Unique visitors surged from **4** on **March 11** to **21** on **March 14**!
 
 📦 Hardcore User Validation: Over **55+** **Clones**! Nearly **1 out of every 2** visitors executed a **Clone**, demonstrating the project's **extremely high utility**!
 
-🌟 Veteran Endorsement: Received a GitHub ⭐ from **[@tkersey](https://github.com)** , GitHub user #**217**.
+🌟 Veteran Endorsement: Received a GitHub ⭐ from [@tkersey](https://github.com)
+ GitHub user #**217**.
 
 ⚠️ Despite the high number of clones, our **Star count is still quiet**.
 If this 'zero-dependency' solution saved you environment setup time, please **drop a Star**⭐ **to help us hit our 20-star goal tonight**!
