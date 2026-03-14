@@ -2,8 +2,8 @@
 
 <img width="1805" height="1625" alt="My_code" src="https://github.com/user-attachments/assets/fb17fd0c-c91c-489d-a918-900fd70f9d0a" />
 
-# 🟢 AntroCode - The Ultimate Single-File AI Client
-
+# 🚀 48 小時內已有 50 多位開發者使用！給它點個讚 ⭐，讓這個計畫繼續發展下去！
+# 🟢 AntroCode - 終極單檔 AI 用戶端
 ![Version](https://img.shields.io/badge/version-1-00FFAA?style=for-the-badge&logoColor=black)
 ![License](https://img.shields.io/badge/license-MIT-darkred?style=for-the-badge)
 ![Setup](https://img.shields.io/badge/setup-10_seconds-blue?style=for-the-badge)
