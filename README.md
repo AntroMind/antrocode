@@ -1,4 +1,4 @@
-### 📈 Status: 55+ Clones in 72h | Starred by [@tkersey](https://github.com) (User #217) 🌟 Help us reach 20 Stars tonight to keep the mission alive!
+### 📈 Status: 55+ Clones in 72h | Starred by @tkersey (User #217) 🌟 Help us reach 20 Stars tonight to keep the mission alive!
 
 
 # 🟢 AntroCode - Single-File DeepSeek UI, the Developer's 'Swiss Army Knife'!
@@ -16,7 +16,7 @@ Unique visitors surged from **4** on **March 11** to **21** on **March 14**!
 
 📦 Hardcore User Validation: Over **55+** **Clones**! Nearly **1 out of every 2** visitors executed a **Clone**, demonstrating the project's **extremely high utility**!
 
-🌟 Veteran Endorsement: Received a GitHub ⭐ from [@tkersey](https://github.com)
+🌟 Veteran Endorsement: Received a GitHub ⭐ from @tkersey
  GitHub user #**217**.
 
 ⚠️ Despite the high number of clones, our **Star count is still quiet**.
