@@ -1,3 +1,5 @@
+# AntroCode is a single python file DeepSeek UI.It just takes 10s to open it!
+
 ### 📈 Status: 159 Clones in 4 days | Starred by @tkersey (User #217) 🌟 
 ### 🏆 Ranked #1 on Hacker News Search for "DeepSeek UI"!
 Recognized by the **global tech community** for its **minimalist architecture**.
