@@ -758,7 +758,7 @@ def main():
     webbrowser.open(file_path)
     
     print("\n\033[92m====================================================\033[0m")
-    print("\033[97m System Ready. \033[92mAntroCode\033[97m is running in your browser.\033[0m")
+    print("\033[97m System Ready. \033[92mAntroCode\033[97m is running in your browser.Give it a star！\033[0m")
     print("\033[92m====================================================\033[0m\n")
 
 if __name__ == "__main__":
