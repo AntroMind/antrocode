@@ -1,10 +1,8 @@
-### 📈 Status: 55+ Clones in 72h | Starred by @tkersey (User #217) 🌟 
+### 📈 Status: 159 Clones in 4 days | Starred by @tkersey (User #217) 🌟 
 ### 🏆 Ranked #1 on Hacker News Search for "DeepSeek UI"!
 Recognized by the **global tech community** for its **minimalist architecture**.
 ### 🎯 Help us break the "Search-Star Gap"!
-We are **Ranked #1** on **Hacker News** Search, yet our Star count is quiet.
-
-If AntroCode saved your time, please be the one to **light up the next star**! ⭐
+Please be the one to **light up the next star**! ⭐
 # 🟢 AntroCode - Single-File DeepSeek UI, the Developer's 'Swiss Army Knife'!
 ![Version](https://img.shields.io/badge/version-1-00FFAA?style=for-the-badge&logoColor=black)
 ![License](https://img.shields.io/badge/license-MIT-darkred?style=for-the-badge)
@@ -27,8 +25,11 @@ Unique visitors surged from **4** on **March 11** to **21** on **March 14**!
 If this 'zero-dependency' solution saved you environment setup time, please **drop a Star**⭐ **to help us hit our 20-star goal tonight**!
 This will help AntroCode **move past this critical low-traction phase**!
 
-## Insight Data：
-<img width="1835" height="1430" alt="Image" src="https://github.com/user-attachments/assets/f13efccd-85bd-4f0b-8216-a7135632a63c" />
+## Clone Data：
+<img width="1785" height="1047" alt="Image" src="https://github.com/user-attachments/assets/423fe85b-8e9d-45ed-8d10-02cb60f2724d" />
+
+## Views & Visitors:
+<img width="1802" height="1045" alt="Image" src="https://github.com/user-attachments/assets/cb0aa830-2cdb-4398-9f35-9074d1e2efc1" />
 
 ## AntroCode SEO:
 
