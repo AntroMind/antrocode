@@ -1,10 +1,4 @@
-# AntroCode is a single python file DeepSeek UI.It just takes 10s to open it!
 
-### 📈 Status: 159 Clones in 4 days | Starred by @tkersey (User #217) 🌟 
-### 🏆 Ranked #1 on Hacker News Search for "DeepSeek UI"!
-Recognized by the **global tech community** for its **minimalist architecture**.
-### 🎯 Help us break the "Search-Star Gap"!
-Please be the one to **light up the next star**! ⭐
 # 🟢 AntroCode - Single-File DeepSeek UI, the Developer's 'Swiss Army Knife'!
 ![Version](https://img.shields.io/badge/version-1-00FFAA?style=for-the-badge&logoColor=black)
 ![License](https://img.shields.io/badge/license-MIT-darkred?style=for-the-badge)
@@ -12,30 +6,6 @@ Please be the one to **light up the next star**! ⭐
 
 ## The Tech interface :
 <img width="2720" height="1482" alt="Image" src="https://github.com/user-attachments/assets/e93855a4-5efa-475f-9ee0-110f56b3d92d" />
-
-# 📊 Project Traction (Real-time Stats)
-## We've experienced incredible growth in the 72.5 hours since open-sourcing:
-📈 Traffic Taking Off: Unique Visitors are exploding!
-Unique visitors surged from **4** on **March 11** to **21** on **March 14**!
-
-📦 Hardcore User Validation: Over **55+** **Clones**! Nearly **1 out of every 2** visitors executed a **Clone**, demonstrating the project's **extremely high utility**!
-
-🌟 Veteran Endorsement: Received a GitHub ⭐ from @tkersey
- GitHub user #**217**.
-
-⚠️ Despite the high number of clones, our **Star count is still quiet**.
-If this 'zero-dependency' solution saved you environment setup time, please **drop a Star**⭐ **to help us hit our 20-star goal tonight**!
-This will help AntroCode **move past this critical low-traction phase**!
-
-## Clone Data：
-<img width="1785" height="1047" alt="Image" src="https://github.com/user-attachments/assets/423fe85b-8e9d-45ed-8d10-02cb60f2724d" />
-
-## Views & Visitors:
-<img width="1802" height="1045" alt="Image" src="https://github.com/user-attachments/assets/cb0aa830-2cdb-4398-9f35-9074d1e2efc1" />
-
-## AntroCode SEO:
-
-<img width="2670" height="1502" alt="Image" src="https://github.com/user-attachments/assets/a56bc73a-2ea9-4885-8225-fc837fc3ee68" />
 
 ## Core Code with a Tech Green & White banner:
 
@@ -54,10 +24,6 @@ This will help AntroCode **move past this critical low-traction phase**!
 ---
 
 ## 🔥 Why Choose AntroCode? (Core Features)
-
-### 🐣 Behind the Code: A 12-Year-Old's 80-Hour Rollercoaster
-"In the past 80 hours, I've felt the thrill of solving problems, the sting of being filtered by algorithms, and the pure joy of being recognized by a GitHub Pioneer (#217). My emotions have been like an ECG (Electrocardiogram)—constant ups and downs. But as a developer, I'd rather have a heartbeat than a flatline. 📈
-AntroCode is my 'exam week' challenge to prove that minimalist, single-file tools still have a place in this bloated world. If you value this spirit, please help us reach our 20-star goal tonight. ⭐"
 
 I stripped away all the complex infrastructure, leaving only pure productivity and absolute data security:
 
@@ -110,8 +76,6 @@ AntroCode is just the **first step**. We're building the future **Edge AI ecosys
 [ ] Phase 4: Launch a **free educational program for students** and a **proprietary Enterprise Edition**.
 
 🤝 **Contributing & Community**
-
-🎯 Tonight's Goal: We are chasing **20 Stars** to prove that minimalist, **single-file tools** are **what developers want**. Be the one to **light up the next star**! ⭐
 
 **Issues** and **Pull Requests** are welcome! If you like AntroCode, **please give us a ⭐️ Star** – it **helps our open-source development immensely!**
 
