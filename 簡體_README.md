@@ -2,26 +2,10 @@
 ![Version](https://img.shields.io/badge/version-1-00FFAA?style=for-the-badge&logoColor=black)
 ![License](https://img.shields.io/badge/license-MIT-darkred?style=for-the-badge)
 ![Setup](https://img.shields.io/badge/setup-10_seconds-blue?style=for-the-badge)
-
+## 酷炫界面
 <img width="2720" height="1482" alt="Image" src="https://github.com/user-attachments/assets/789f60e9-4712-409b-b74f-c9acb2865f2b" />
 
-# 📊 项目动态 (Real-time Traction)
-## 我们在开源后的 72.5 小时 内经历了不可思议的增长：
-📈 流量垂直起飞：独立访客数（Unique Visitors）正在爆炸式增长！
-单独访客由**3月11日**的**4**位飙升至**3月14日**的**21**位！
-
-📦 硬核用户认可：已有 **55+** 次 **Clone**，每**2**个访客就有 **1** 个执行了 **Clone**，这代表项目的**实用性极高**！
-
-🌟 大神背书：获得 GitHub 第 **217** 号**元老级**用户 **@tkersey** 的**GitHub**⭐。
-
-⚠️ 虽然克隆数很多，但我们的 **Star 数还很冷清**。
-如果这个「零依赖」的方案帮你省下了配置环境的时间，请**点个 Star**⭐ **支持我们冲击今晚 20 星**的目标！
-这能够让AntroCode**摆脱流量不足的危险期**！
-
-<img width="1835" height="1430" alt="Image" src="https://github.com/user-attachments/assets/f13efccd-85bd-4f0b-8216-a7135632a63c" />
-
-<img width="2670" height="1502" alt="Image" src="https://github.com/user-attachments/assets/a56bc73a-2ea9-4885-8225-fc837fc3ee68" />
-
+## 核心代码架构
 <img width="1805" height="1625" alt="Image" src="https://github.com/user-attachments/assets/817ffff2-70ea-49c8-b321-b62789d3ff14" />
 
 「我们受够了为了**跑一个简单的 UI** 要**下载几百 MB** 的依赖。AntroCode 是一个**极致轻量**、**开箱即用**的**纯前端 LLM 客户端**。」
@@ -39,7 +23,6 @@
 
 ## 🔥 为什么选择 AntroCode？ (Core Features)
 
-### 🐣 我是一名 12 岁的开发者。这是我在考试周期间，利用 4 天时间挑战极限完成的作品。
 我把所有复杂的基础设施全部抛弃，只留下最纯粹的生产力与绝对的资料安全：
 
 ### 1. 🚀 极致轻量，开箱即用 (Zero-Install)
@@ -70,6 +53,7 @@
 2. **执行脚本**：
 ```bash
 python AntroCode_1.py
+```
 开始使用：脚本会自动在当前目录生成 **antrocode_ui_pro_max.html** 并自动为你打开浏览器。
 
 设定 **API Key**：点击**左下角** ⚙️ Settings，输入你的 **API Key**，即可开始对话！
