@@ -2,26 +2,10 @@
 ![Version](https://img.shields.io/badge/version-1-00FFAA?style=for-the-badge&logoColor=black)
 ![License](https://img.shields.io/badge/license-MIT-darkred?style=for-the-badge)
 ![Setup](https://img.shields.io/badge/setup-10_seconds-blue?style=for-the-badge)
-
+## 酷炫界面
 <img width="2720" height="1482" alt="Image" src="https://github.com/user-attachments/assets/789f60e9-4712-409b-b74f-c9acb2865f2b" />
 
-# 📊 項目動態 (Real-time Traction)
-## 我們在開源後的 72.5 小時 內經歷了不可思議的增長：
-📈 流量垂直起飛：獨立訪客數（Unique Visitors）正在爆炸式增長！
-單獨訪客由**3月11日**的**4**位飆升至**3月14日**的**21**位！
-
-📦 硬核用戶認可：已有 **55+** 次 **Clone**，每**2**個訪客就有 **1** 個執行了 **Clone**，這代表項目的**實用性極高**！
-
-🌟 大神背書：獲得 GitHub 第 **217** 號**元老級**用戶 **@tkersey** 的**GitHub**⭐。
-
-⚠️ 雖然克隆數很多，但我們的 **Star 數還很冷清**。
-如果這個「零依賴」的方案幫你省下了配置環境的時間，請**點個 Star**⭐ **支持我們衝擊今晚 20 星**的目標！
-這能夠讓AntroCode**擺脫流量不足的危險期**！
-
-<img width="1835" height="1430" alt="Image" src="https://github.com/user-attachments/assets/f13efccd-85bd-4f0b-8216-a7135632a63c" />
-
-<img width="2670" height="1502" alt="Image" src="https://github.com/user-attachments/assets/a56bc73a-2ea9-4885-8225-fc837fc3ee68" />
-
+## 核心代碼架構
 <img width="1805" height="1625" alt="Image" src="https://github.com/user-attachments/assets/817ffff2-70ea-49c8-b321-b62789d3ff14" />
 
 「我們受夠了為了**跑一個簡單的 UI** 要**下載幾百 MB** 的依賴。AntroCode 是一個**極致輕量**、**開箱即用**的**純前端 LLM 客戶端**。」
@@ -39,7 +23,7 @@
 
 ## 🔥 為什麼選擇 AntroCode？ (Core Features)
 
-### 🐣 我是一名 12 歲的開發者。這是我在考試周期間，利用 4 天時間挑戰極限完成的作品。
+
 我把所有複雜的基礎設施全部拋棄，只留下最純粹的生產力與絕對的資料安全：
 
 ### 1. 🚀 極致輕量，開箱即用 (Zero-Install)
