@@ -6,7 +6,7 @@ I want to **gather us to improve** our product !
 ### What I am looking for :
 1.Can code or **vibe coding**
 
-2.Have ideas about AntroCode or AntroBot(**Next-generation** AntroCode)
+2.Have ideas about AntroCode or AgentCode(**Next-generation** AntroCode)
 
 ## Tell me in "discussion" on GitHub ! 
 
